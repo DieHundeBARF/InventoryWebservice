@@ -1,0 +1,6 @@
+AddDefaultCharset UTF-8
+RewriteEngine on
+RewriteBase /inventory
+
+# internally replace "/inventory/90/" with "inventory/index.php?item_id=90"
+RewriteRule ^([0-9]+)/?$ index.php?item_id=$1
