@@ -1,5 +1,5 @@
 # InventoryWebservice
-Restful webservice to get and adjust the shops inventory.
+Restful webservice to get and adjust a shops inventory.
 
 ## Operations
 + Whole inventory (e.g. `http://<user>:<pass>@127.0.0.1/inventory`)
@@ -15,9 +15,9 @@ Restful webservice to get and adjust the shops inventory.
 + **HEAD:** `curl -u <user>:<pass> -i -X 'HEAD' http://127.0.0.1/inventory/`
 + **GET:** `curl -u <user>:<pass> http://127.0.0.1/inventory/67`
 + **PUT:** `curl -u <user>:<pass> -X PUT -d quantity=3 http://127.0.0.1/inventory/67`
-+ **POST:** `curl -u <user>:<pass> --request 'POST' -d 'name=wurst' http://127.0.0.1/inventory/`
++ **POST:** `curl -u <user>:<pass> --request 'POST' -d 'name=Lamm' http://127.0.0.1/inventory/`
 
-## Enabling URL rewriting for apache
+## Enabling URL rewriting for Apache
 1. `a2enmod rewrite`
 2. In `apache2.conf` set `AllowOverride` to  `All` for the /var/www/ directory
 3. `service apache2 restart`
