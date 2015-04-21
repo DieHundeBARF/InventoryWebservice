@@ -130,7 +130,7 @@ class InventoryWebservice {
 		$result = $this->mysqli->query("
 				SELECT p.ID, p.name, p.barcode, w.name AS warengruppe
 				FROM `produkte-verkauf` AS p
-					JOIN warengruppe AS w
+					LEFT JOIN warengruppe AS w
 					  ON p.warengruppe = w.ID"
 				);
 		if ($this->mysqli->error) {
@@ -146,9 +146,9 @@ class InventoryWebservice {
 		$result = $this->mysqli->query("
 				SELECT p.*, b.menge, w.name AS warengruppe
 				FROM   `produkte-verkauf` AS p
-       				JOIN bestand AS b
+       				LEFT JOIN bestand AS b
          			  ON p.id = b.verkaufsid
-					JOIN warengruppe AS w
+					LEFT JOIN warengruppe AS w
 					  ON p.warengruppe = w.ID
 				WHERE  p.id = $item_id
 		");
