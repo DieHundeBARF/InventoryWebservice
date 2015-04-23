@@ -25,6 +25,7 @@
 
 $service = new InventoryWebservice();
 $service->check_authorization();
+$service->setup_caching();
 $service->process_request();
 
 class InventoryWebservice {
@@ -124,6 +125,11 @@ class InventoryWebservice {
 				// 405 - Method Not Allowed
 				$this->respond(405, "Method Not Allowed", NULL);
 		}
+	}
+	
+	public function setup_caching() {
+		// items may be out of date immediately, e.g. after changing the quantity
+		header("Cache-Control: public, max-age=0");
 	}
 	
 	private function reply_item_list() {
